@@ -13,17 +13,26 @@ Develop a prototype that simulates the key functionality of the system, then tes
 ## Initial Database Design
 
 Replace this text with notes regarding the DB design.
+This is my initial database design linking the users and tasks to make a volunteer. Each user and task will have multiple bits of data attached. The tasks include a signed_up and completed field for the user and admin to track each task.
 
-![SCREENSHOT OF DB DESIGN](screenshots/example.png)
 
+![Initial Database Design](screenshots/initial-database-design.png)
 
 ### Required Data Input
 
 Replace this text with a description of what data will be input, and where / how it will be obtained.
 
+The end-user will input information about themselves when they are signing up. The admin will be inputting information about the tasks when they want a new one created.
+
+This information will be filled out using a form and submitted to the database
+
+The user can mark a task as signed up or completed (used for personal tracking) and will update the data in the database
+
 ### Required Data Output
 
 Replace this text with a description of the outputs for the system - what types of data will be displayed?
+
+The system will display output data by showing the list of tasks on the home screen, showing a list of tasks along with who has signed up for it on the admin homescreen, the details of each task, the signed up and completed check box next to each task.
 
 ### Required Data Processing
 
