@@ -1,19 +1,23 @@
-# PROJECT NAME HERE
+# Gymnastics Nelson website
 
-by YOUR NAME HERE
+by Scott Noble
 
 
 ---
 
 ## Project Description
 
-Replace this text with your project description and list the key features below
+This is a project where people can log in and volunteer for tasks to help out with during or before events.
 
-- Feature 1 here
-- Feature 2 here
-- Feature 3 here
-- Feature 4 here
-- Feature 5 here
+
+- The user/admin can log in/sign up and log out
+- The user can volunteer for a task by ticking a box
+- The user can un volunteer from a task
+- The user can click on a task to see the description of it
+- The user can tick a boz for a personal check list of the task they have completed
+- The admin can see who has volunteered for which task
+- The admin can add a new task to the list
+- The admin can delete a task from the list
 
 
 ---
