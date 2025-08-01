@@ -23,6 +23,7 @@ Replace this text with your project description and list the key features below
 ## Project Links
 
 - [GitHub repo for the project](https://github.com/waimea-snoble/300dtd-gymnastics-nelson-website-project)
+- [Project Documentation](https://waimea-snoble.github.io/300dtd-gymnastics-nelson-website-project/)
 - [Live web app](https://...)
 
 
