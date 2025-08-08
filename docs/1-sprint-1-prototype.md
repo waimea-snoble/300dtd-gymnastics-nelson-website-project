@@ -47,7 +47,7 @@ The first stage of prototyping was to explore how the UI might 'flow' between st
 
 This Figma demo shows the initial design for the UI 'flow':
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/5ZJNorMpFXxIvVf18IP8X5/300-DTD-Gymnastics-Flow?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="700" src="https://embed.figma.com/proto/5ZJNorMpFXxIvVf18IP8X5/300-DTD-Gymnastics-Flow?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
@@ -58,7 +58,7 @@ My client said "It would be easier for the admin to contact each person to remin
 I listened to my client and added a new page when the admin clicks on a users name. This will show the clients contact details e.g. email and phonenumber, as well as showing what tasks the user has volunteered for.
 I also realised that there was no way for the user to signup, so i added a sign up button on the sign in page taking the user to the sign up page.
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/KXKjpTe2NPsoiKvnJFjezL/300-DTD-Gymnastics-Flow-Update?scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=1-5&starting-point-node-id=1%3A5&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="700" src="https://embed.figma.com/proto/KXKjpTe2NPsoiKvnJFjezL/300-DTD-Gymnastics-Flow-v2?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&embed-host=share" allowfullscreen></iframe>
 
 
 ---
@@ -69,7 +69,7 @@ The next stage of prototyping was to develop the layout for each screen of the U
 
 This Figma demo shows the initial layout design for the UI:
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/JkAPEwX7dMzrxb4eipqN9Y/300-DTD-Gymnastics-Initial-Prototype?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="700" src="https://embed.figma.com/proto/JkAPEwX7dMzrxb4eipqN9Y/300-DTD-Gymnastics-Initial-Prototype?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
@@ -79,8 +79,18 @@ I shows this to my client and they said "The website looks nice and is easy to n
 
 I have listened to my client and added the text below the login/signup form, so that the user can easily see it and change between the pages.
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/WHKiiZkEyR07JJnRP5JPNb/300-DTD-Gymnastics-Initial-Prototype-v2?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="700" src="https://embed.figma.com/proto/WHKiiZkEyR07JJnRP5JPNb/300-DTD-Gymnastics-Initial-Prototype-v2?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&embed-host=share" allowfullscreen></iframe>
 
+
+### Testing
+
+Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+
+### Changes / Improvements
+
+Replace this text with notes any improvements you made as a result of the testing.
+
+*FIGMA IMPROVED INITIAL PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
 
 ---
 
