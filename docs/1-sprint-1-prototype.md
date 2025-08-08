@@ -73,13 +73,13 @@ This Figma demo shows the initial layout design for the UI:
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I shows this to my client and they said "The website looks nice and is easy to navigate. However it would be better you got rid of the log in and sign up on the top right of the log in and sign up page. it would be easier for the user if there was message underneath saying something like "Don't have an account? login" and maybe underline it to show the user that they can click on it to take them to the login or signup page."
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I have listened to my client and added the text below the login/signup form, so that the user can easily see it and change between the pages.
 
-*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/WHKiiZkEyR07JJnRP5JPNb/300-DTD-Gymnastics-Initial-Prototype-v2?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
 
 
 ---
