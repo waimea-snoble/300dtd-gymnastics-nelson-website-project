@@ -84,6 +84,17 @@ I have listened to my client and added the text below the login/signup form, so 
 
 ### Testing
 
+I showed this to my client and they said "Its really good but for some reason last time i didn't notice that there as no home button. It would good for users to go strait to the home screen from any page. As well as showing the title of the website on each page."
+
+### Changes / Improvements
+
+Replace this text with notes any improvements you made as a result of the testing.
+
+*FIGMA IMPROVED INITIAL PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+
+
+### Testing
+
 Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
 
 ### Changes / Improvements
