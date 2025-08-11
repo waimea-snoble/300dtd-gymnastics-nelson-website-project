@@ -84,7 +84,7 @@ I have listened to my client and added the text below the login/signup form, so 
 
 ### Testing
 
-I showed this to my client and they said "Its really good but for some reason last time i didn't notice that there as no home button. It would good for users to go strait to the home screen from any page. As well as showing the title of the website on each page."
+I showed this to my client and they said "Its really good but for some reason last time i didn't notice that there as no home button. It would be good for users to go straight to the home screen from any page, as well as showing the title of the website on each page."
 
 ### Changes / Improvements
 
