@@ -88,9 +88,9 @@ I showed this to my client and they said "Its really good but for some reason la
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I listened to my client and combined their ideas. I made it so that when the user clicks on the website name (Gymnastics Nelson) it takes them to the home page.
 
-*FIGMA IMPROVED INITIAL PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="700" src="https://embed.figma.com/proto/WXdJN77YWno5VsyU6E1SNN/300-DTD-Gymnastics-Initial-Prototype-v3?node-id=1-5&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A5&embed-host=share" allowfullscreen></iframe>
 
 
 ### Testing
