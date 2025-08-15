@@ -15,7 +15,6 @@ Develop a prototype that simulates the key functionality of the system, then tes
 Replace this text with notes regarding the DB design.
 This is my initial database design linking the users and tasks to make a volunteer. Each user and task will have multiple bits of data attached. The tasks include a signed_up and completed field for the user and admin to track each task.
 
-
 ![Initial Database Design](screenshots/initial-database-design.png)
 
 ### Required Data Input
