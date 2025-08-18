@@ -32,123 +32,144 @@ init_datetime(app)  # Handle UTC dates in timestamps
 # Home page route
 #-----------------------------------------------------------
 @app.get("/")
-def index():
-    return render_template("pages/home.jinja")
-
-
-#-----------------------------------------------------------
-# About page route
-#-----------------------------------------------------------
-@app.get("/about/")
-def about():
-    return render_template("pages/about.jinja")
-
-
-#-----------------------------------------------------------
-# Things page route - Show all the things, and new thing form
-#-----------------------------------------------------------
-@app.get("/things/")
-def show_all_things():
+def show_all_tasks():
     with connect_db() as client:
         # Get all the things from the DB
         sql = """
-            SELECT things.id,
-                   things.name,
-                   users.name AS owner
+            SELECT tasks.id,
+                   tasks.name
 
-            FROM things
-            JOIN users ON things.user_id = users.id
-
-            ORDER BY things.name ASC
+            FROM tasks
         """
         params=[]
         result = client.execute(sql, params)
-        things = result.rows
+        tasks = result.rows
 
         # And show them on the page
-        return render_template("pages/things.jinja", things=things)
+        return render_template("pages/home.jinja", tasks=tasks)
 
 
-#-----------------------------------------------------------
-# Thing page route - Show details of a single thing
-#-----------------------------------------------------------
-@app.get("/thing/<int:id>")
-def show_one_thing(id):
-    with connect_db() as client:
-        # Get the thing details from the DB, including the owner info
-        sql = """
-            SELECT things.id,
-                   things.name,
-                   things.price,
-                   things.user_id,
-                   users.name AS owner
-
-            FROM things
-            JOIN users ON things.user_id = users.id
-
-            WHERE things.id=?
-        """
-        params = [id]
-        result = client.execute(sql, params)
-
-        # Did we get a result?
-        if result.rows:
-            # yes, so show it on the page
-            thing = result.rows[0]
-            return render_template("pages/thing.jinja", thing=thing)
-
-        else:
-            # No, so show error
-            return not_found_error()
+# #-----------------------------------------------------------
+# # About page route
+# #-----------------------------------------------------------
+# @app.get("/about/")
+# def about():
+#     return render_template("pages/about.jinja")
 
 
-#-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
-# - Restricted to logged in users
-#-----------------------------------------------------------
-@app.post("/add")
-@login_required
-def add_a_thing():
-    # Get the data from the form
-    name  = request.form.get("name")
-    price = request.form.get("price")
-
-    # Sanitise the text inputs
-    name = html.escape(name)
-
-    # Get the user id from the session
-    user_id = session["user_id"]
-
-    with connect_db() as client:
-        # Add the thing to the DB
-        sql = "INSERT INTO things (name, price, user_id) VALUES (?, ?, ?)"
-        params = [name, price, user_id]
-        client.execute(sql, params)
-
-        # Go back to the home page
-        flash(f"Thing '{name}' added", "success")
-        return redirect("/things")
+# #-----------------------------------------------------------
+# # About page route
+# #-----------------------------------------------------------
+# @app.get("/about/")
+# def about():
+#     return render_template("pages/about.jinja")
 
 
-#-----------------------------------------------------------
-# Route for deleting a thing, Id given in the route
-# - Restricted to logged in users
-#-----------------------------------------------------------
-@app.get("/delete/<int:id>")
-@login_required
-def delete_a_thing(id):
-    # Get the user id from the session
-    user_id = session["user_id"]
+# #-----------------------------------------------------------
+# # Things page route - Show all the things, and new thing form
+# #-----------------------------------------------------------
+# @app.get("/things/")
+# def show_all_things():
+#     with connect_db() as client:
+#         # Get all the things from the DB
+#         sql = """
+#             SELECT things.id,
+#                    things.name,
+#                    users.name AS owner
 
-    with connect_db() as client:
-        # Delete the thing from the DB only if we own it
-        sql = "DELETE FROM things WHERE id=? AND user_id=?"
-        params = [id, user_id]
-        client.execute(sql, params)
+#             FROM things
+#             JOIN users ON things.user_id = users.id
 
-        # Go back to the home page
-        flash("Thing deleted", "success")
-        return redirect("/things")
+#             ORDER BY things.name ASC
+#         """
+#         params=[]
+#         result = client.execute(sql, params)
+#         things = result.rows
+
+#         # And show them on the page
+#         return render_template("pages/things.jinja", things=things)
+
+
+# #-----------------------------------------------------------
+# # Thing page route - Show details of a single thing
+# #-----------------------------------------------------------
+# @app.get("/thing/<int:id>")
+# def show_one_thing(id):
+#     with connect_db() as client:
+#         # Get the thing details from the DB, including the owner info
+#         sql = """
+#             SELECT things.id,
+#                    things.name,
+#                    things.price,
+#                    things.user_id,
+#                    users.name AS owner
+
+#             FROM things
+#             JOIN users ON things.user_id = users.id
+
+#             WHERE things.id=?
+#         """
+#         params = [id]
+#         result = client.execute(sql, params)
+
+#         # Did we get a result?
+#         if result.rows:
+#             # yes, so show it on the page
+#             thing = result.rows[0]
+#             return render_template("pages/thing.jinja", thing=thing)
+
+#         else:
+#             # No, so show error
+#             return not_found_error()
+
+
+# #-----------------------------------------------------------
+# # Route for adding a thing, using data posted from a form
+# # - Restricted to logged in users
+# #-----------------------------------------------------------
+# @app.post("/add")
+# @login_required
+# def add_a_thing():
+#     # Get the data from the form
+#     name  = request.form.get("name")
+#     price = request.form.get("price")
+
+#     # Sanitise the text inputs
+#     name = html.escape(name)
+
+#     # Get the user id from the session
+#     user_id = session["user_id"]
+
+#     with connect_db() as client:
+#         # Add the thing to the DB
+#         sql = "INSERT INTO things (name, price, user_id) VALUES (?, ?, ?)"
+#         params = [name, price, user_id]
+#         client.execute(sql, params)
+
+#         # Go back to the home page
+#         flash(f"Thing '{name}' added", "success")
+#         return redirect("/things")
+
+
+# #-----------------------------------------------------------
+# # Route for deleting a thing, Id given in the route
+# # - Restricted to logged in users
+# #-----------------------------------------------------------
+# @app.get("/delete/<int:id>")
+# @login_required
+# def delete_a_thing(id):
+#     # Get the user id from the session
+#     user_id = session["user_id"]
+
+#     with connect_db() as client:
+#         # Delete the thing from the DB only if we own it
+#         sql = "DELETE FROM things WHERE id=? AND user_id=?"
+#         params = [id, user_id]
+#         client.execute(sql, params)
+
+#         # Go back to the home page
+#         flash("Thing deleted", "success")
+#         return redirect("/things")
 
 
 
@@ -181,6 +202,7 @@ def add_user():
     name = request.form.get("name")
     username = request.form.get("username")
     password = request.form.get("password")
+    phone = request.form.get("phone")
 
     with connect_db() as client:
         # Attempt to find an existing record for that user
@@ -197,8 +219,8 @@ def add_user():
             hash = generate_password_hash(password)
 
             # Add the user to the users table
-            sql = "INSERT INTO users (name, username, password_hash) VALUES (?, ?, ?)"
-            params = [name, username, hash]
+            sql = "INSERT INTO users (name, username, password_hash, phone) VALUES (?, ?, ?, ?)"
+            params = [name, username, hash, phone]
             client.execute(sql, params)
 
             # And let them know it was successful and they can login
