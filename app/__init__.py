@@ -37,7 +37,8 @@ def show_all_tasks():
         # Get all the things from the DB
         sql = """
             SELECT tasks.id,
-                   tasks.name
+                   tasks.name,
+                   tasks.signed_up
 
             FROM tasks
         """
@@ -47,7 +48,26 @@ def show_all_tasks():
 
         # And show them on the page
         return render_template("pages/home.jinja", tasks=tasks)
+    
 
+#-----------------------------------------------------------
+#  Volunteer for task
+#-----------------------------------------------------------
+@app.get("/volunteer/<int:id>")
+def volunteer_task(id):
+    with connect_db() as client:
+        # Toggle signed_up state
+        sql = """
+            UPDATE tasks
+            SET signed_up = NOT signed_up
+            WHERE id = ?
+        """
+        params = [id]
+        client.execute(sql, params)
+
+        return redirect("/")
+
+    
 
 # #-----------------------------------------------------------
 # # About page route
@@ -90,17 +110,47 @@ def show_all_tasks():
 #         return render_template("pages/things.jinja", things=things)
 
 
+#-----------------------------------------------------------
+# Thing page route - Show details of a single thing
+#-----------------------------------------------------------
+@app.get("/task/<int:id>")
+def show_one_task(id):
+    with connect_db() as client:
+        # Get the task details from the DB
+        sql = """
+            SELECT tasks.id,
+                   tasks.name,
+                   tasks.description,
+                   tasks.signed_up,
+                   tasks.completed
+
+            FROM tasks
+
+            WHERE tasks.id=?
+        """
+        params = [id]
+        result = client.execute(sql, params)
+
+        # Did we get a result?
+        if result.rows:
+            # yes, so show it on the page
+            task = result.rows[0]
+            return render_template("pages/task.jinja", task=task)
+
+        else:
+            # No, so show error
+            return not_found_error()
+
 # #-----------------------------------------------------------
-# # Thing page route - Show details of a single thing
+# # Thing admin page route - Show details of a single thing
 # #-----------------------------------------------------------
-# @app.get("/thing/<int:id>")
-# def show_one_thing(id):
+# @app.get("/task/<int:id>")
+# def show_one_task(id):
 #     with connect_db() as client:
-#         # Get the thing details from the DB, including the owner info
+#         # Get the task details from the DB, including the owner info
 #         sql = """
 #             SELECT things.id,
 #                    things.name,
-#                    things.price,
 #                    things.user_id,
 #                    users.name AS owner
 

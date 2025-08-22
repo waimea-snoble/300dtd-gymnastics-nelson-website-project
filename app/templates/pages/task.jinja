@@ -1,0 +1,38 @@
+{#=====================================================
+  Thing page
+  - Shows details of a single thing
+  - Has a delete link to remove it
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Gymnastics Nelson - Single Task
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>A Single Task</h1>
+
+
+    <article>
+
+        <header>
+            <h3>{{ task.name }}</h3>
+        </header>
+
+        <body>
+            <h4>{{ task.description}}</h4>
+        </body>
+
+    </article>
+
+
+    <a role="button" href="/">Back to Thing List</a>
+
+{% endblock %}
+

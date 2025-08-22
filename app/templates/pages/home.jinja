@@ -26,8 +26,17 @@
             {% for task in tasks %}
 
                 <li>
+    <a href="/volunteer/{{ task.id }}">
+
+    {% if task.signed_up %}
+        X
+    {% else %}
+        O
+    {% endif %}
                     <a href="/task/{{ task.id }}">
-                        <strong>{{ task.name }}</strong>
+
+                    
+                        <strong>{{ task.name }}</strong> 
                     </a>
                 </li>
 
@@ -39,5 +48,13 @@
         </ul>
 
     </article>
+
+
+    {# Only show form if user is logged in #}
+    {% if session.user_id %}
+
+
+
+    {% endif %}
 
 {% endblock %}
