@@ -51,10 +51,10 @@ def show_all_tasks():
     
 
 #-----------------------------------------------------------
-#  Volunteer for task
+#  Update the volunteer status for a task
 #-----------------------------------------------------------
-@app.get("/volunteer/<int:id>")
-def volunteer_task(id):
+@app.get("/update_volunteer_status/<int:id>")
+def update_volunteer(id):
     with connect_db() as client:
         # Toggle signed_up state
         sql = """
@@ -62,12 +62,34 @@ def volunteer_task(id):
             SET signed_up = NOT signed_up
             WHERE id = ?
         """
+        
         params = [id]
         client.execute(sql, params)
 
         return redirect("/")
 
     
+#-----------------------------------------------------------
+# Route for adding a thing, using data posted from a form
+# - Restricted to logged in users
+#-----------------------------------------------------------
+@app.post("/volunteer/")
+@login_required
+def volunteer_task(task_id):
+
+    # Get the user id from the session
+    user_id = session["user_id"]
+
+    with connect_db() as client:
+        # Add the thing to the DB
+        sql = "INSERT INTO volunteers (user_id, task_id) VALUES (?, ?)"
+        params = [user_id, task_id]
+        client.execute(sql, params)
+
+        # Go back to the home page
+        flash(f"Thank you for signing up")
+        return redirect("/")
+
 
 # #-----------------------------------------------------------
 # # About page route
@@ -253,6 +275,7 @@ def add_user():
     username = request.form.get("username")
     password = request.form.get("password")
     phone = request.form.get("phone")
+    
 
     with connect_db() as client:
         # Attempt to find an existing record for that user
@@ -309,6 +332,7 @@ def login_user():
                 session["user_id"]   = user["id"]
                 session["user_name"] = user["name"]
                 session["logged_in"] = True
+                session["user_admin"]   = user["admin"]
 
                 # And head back to the home page
                 flash("Login successful", "success")
@@ -327,7 +351,8 @@ def logout():
     # Clear the details from the session
     session.pop("user_id", None)
     session.pop("user_name", None)
-    session.pop("logged_in", None)
+    session.pop("user_logged_in", None)
+    session.pop("user_admin", None)
 
     # And head back to the home page
     flash("Logged out successfully", "success")

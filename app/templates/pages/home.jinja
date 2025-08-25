@@ -20,13 +20,14 @@
     <h1>Tasks</h1>
 
 
+{% if not session.user_admin%}
     <article>
 
         <ul>
             {% for task in tasks %}
 
                 <li>
-    <a href="/volunteer/{{ task.id }}">
+    <a href="/update_volunteer_status/{{ task.id }}">
 
     {% if task.signed_up %}
         X
@@ -49,11 +50,13 @@
 
     </article>
 
-
-    {# Only show form if user is logged in #}
-    {% if session.user_id %}
+    {% endif %}
 
 
+    {# Only show if the admin is logged in #}
+    {% if session.user_admin%}
+
+   <h1>hello</h1>
 
     {% endif %}
 
