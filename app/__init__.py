@@ -53,43 +53,85 @@ def show_all_tasks():
 #-----------------------------------------------------------
 #  Update the volunteer status for a task
 #-----------------------------------------------------------
-@app.get("/update_volunteer_status/<int:id>")
-def update_volunteer(id):
-    with connect_db() as client:
-        # Toggle signed_up state
-        sql = """
-            UPDATE tasks
-            SET signed_up = NOT signed_up
-            WHERE id = ?
-        """
+# @app.get("/update_volunteer_status/<int:id>")
+# def update_volunteer(id):
+#     with connect_db() as client:
+#         # Toggle signed_up state
+#         sql = """
+#             UPDATE tasks
+#             SET signed_up = NOT signed_up
+#             WHERE id = ?
+#         """
         
-        params = [id]
-        client.execute(sql, params)
+#         params = [id]
+#         client.execute(sql, params)
 
-        return redirect("/")
+#         return redirect("/")
 
     
 #-----------------------------------------------------------
 # Route for adding a thing, using data posted from a form
 # - Restricted to logged in users
 #-----------------------------------------------------------
-@app.post("/volunteer/")
+# @app.post("/volunteer/")
+# @login_required
+# def volunteer_task(task_id):
+
+#     # Get the user id from the session
+#     user_id = session["user_id"]
+
+#     with connect_db() as client:
+
+#         # Add the thing to the DB
+#         sql = "INSERT INTO volunteers (user_id, task_id) VALUES (?, ?)"
+#         params = [user_id, task_id]
+#         client.execute(sql, params)
+
+#         # Go back to the home page
+#         flash(f"Thank you for signing up")
+#         return redirect("/")
+
+#-----------------------------------------------------------
+# Favouriting route
+#-----------------------------------------------------------
+@app.get("/volunteer/<int:task_id>")
 @login_required
-def volunteer_task(task_id):
-
-    # Get the user id from the session
+def toggle_volunteer(task_id):
+    # Get the user's ID
     user_id = session["user_id"]
-
+ 
     with connect_db() as client:
-        # Add the thing to the DB
-        sql = "INSERT INTO volunteers (user_id, task_id) VALUES (?, ?)"
+        # Check if this exercise is favourited
+        sql = "SELECT * FROM volunteers WHERE user_id = ? AND task_id = ?"
         params = [user_id, task_id]
-        client.execute(sql, params)
+        params2 = [task_id]
+        result = client.execute(sql, params)
+ 
 
-        # Go back to the home page
-        flash(f"Thank you for signing up")
-        return redirect("/")
 
+
+        if result.rows:
+            # Already signed up so un signup
+            sql = "DELETE FROM volunteers WHERE user_id = ? AND task_id = ?"
+            client.execute(sql, params)
+            flash("Task no longer signed up", "Success")
+        else:
+            # not signed up so sign up
+            sql = "INSERT INTO volunteers (user_id, task_id) VALUES (?, ?)"
+            client.execute(sql, params)
+            flash("Task now signed up", "success")
+
+                    # Toggle signed_up state
+        sql = """
+            UPDATE tasks
+            SET signed_up = NOT signed_up
+            WHERE id = ?
+        """
+        
+        client.execute(sql, params2)
+ 
+    # Redirect back to the home page
+    return redirect("/")
 
 # #-----------------------------------------------------------
 # # About page route
