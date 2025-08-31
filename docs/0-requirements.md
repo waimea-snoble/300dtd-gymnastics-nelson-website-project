@@ -32,11 +32,11 @@ Replace this text with an explanation of what you will need to consider moving f
 
 ## Usability
 
-Replace this text with a clear explanation of what the implication means.
+Useability means making a website that is easy to use by following Nielsen's 10 useability heuristics
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+This is relevant for my project because the end user could be any age, meaning that the website needs to be easy to use. This will be done by referring to the 10 useability heuristics when designing my website.
 
 ### Impact / Considerations
 
@@ -68,7 +68,7 @@ Social means having a project that appeals to all groups and doesn't cause offen
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+*    This is important for my project because I want the website to appeal to coaches, gymnasts and caregivers 
 
 ### Impact / Considerations
 
