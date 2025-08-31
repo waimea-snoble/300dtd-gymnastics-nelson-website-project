@@ -68,7 +68,7 @@ Social means having a project that appeals to all groups and doesn't cause offen
 
 ### Relevance to the System
 
-*    This is important for my project because I want the website to appeal to coaches, gymnasts and caregivers 
+This is important for my project because I want the website to appeal to all coaches, gymnasts and caregivers, taking into consideration their age, gender and ethnicity.
 
 ### Impact / Considerations
 
