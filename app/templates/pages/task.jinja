@@ -23,7 +23,20 @@
 
         <header>
             <h3>{{ task.name }}</h3>
+
+                        <a href="/volunteer/{{ task.id }}">
+
+
+    {% if task.signed_up %}
+        ☑
+    {% else %}
+        ☐
+    {% endif %}
+
+    </a>
         </header>
+
+
 
         <body>
             <h4>{{ task.description}}</h4>

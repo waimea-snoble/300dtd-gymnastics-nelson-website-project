@@ -1,6 +1,5 @@
 {#=====================================================
-  Home page
-  - Hero style greeting banner
+  Things page
   - List of things passed in as 'things' array
   - Form for adding a new thing
 =====================================================#}
@@ -10,34 +9,23 @@
 
 {% block title %}
 
-    Gymnastics Nelson
+    Flask Demo - All Things
 
 {% endblock %}
 
 
 {% block content %}
 
-    <h1>Tasks</h1>
+    <h1>Things...</h1>
 
 
-{% if not session.user_admin%}
     <article>
 
         <ul>
             {% for task in tasks %}
 
                 <li>
-    <a href="/volunteer/{{ task.id }}">
-
-
-    {% if task.signed_up %}
-        ☑
-    {% else %}
-        ☐
-    {% endif %}
-                    <a href="/task/{{ task.id }}">
-
-                    
+                    <a href="/personal/{{ task.id }}">
                         <strong>{{ task.name }}</strong> 
                     </a>
                 </li>
@@ -51,14 +39,6 @@
 
     </article>
 
-    {% endif %}
-
-
-    {# Only show if the admin is logged in #}
-    {% if session.user_admin%}
-
-   <h1>hello</h1>
-
-    {% endif %}
 
 {% endblock %}
+

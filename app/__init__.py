@@ -130,8 +130,8 @@ def toggle_volunteer(task_id):
         
         client.execute(sql, params2)
  
-    # Redirect back to the home page
-    return redirect("/")
+    # Redirect back to the current page
+    return redirect(request.referrer or "/")
 
 # #-----------------------------------------------------------
 # # About page route
@@ -149,29 +149,30 @@ def toggle_volunteer(task_id):
 #     return render_template("pages/about.jinja")
 
 
-# #-----------------------------------------------------------
-# # Things page route - Show all the things, and new thing form
-# #-----------------------------------------------------------
-# @app.get("/things/")
-# def show_all_things():
-#     with connect_db() as client:
-#         # Get all the things from the DB
-#         sql = """
-#             SELECT things.id,
-#                    things.name,
-#                    users.name AS owner
+#-----------------------------------------------------------
+# Things page route - Show all the things, and new thing form
+#-----------------------------------------------------------
+@app.route("/personal/")
+def personal():
+    user_id = session["user_id"]  # Get the logged-in user
+    with connect_db() as client:
+        sql = """
 
-#             FROM things
-#             JOIN users ON things.user_id = users.id
+                    SELECT 
+                        tasks.id,
+                        tasks.name,
+                        tasks.description,
+                        tasks.signed_up,
+                        tasks.completed
+                    FROM volunteers
+                    JOIN tasks ON volunteers.task_id = tasks.id
+                    WHERE volunteers.user_id = ?
 
-#             ORDER BY things.name ASC
-#         """
-#         params=[]
-#         result = client.execute(sql, params)
-#         things = result.rows
-
-#         # And show them on the page
-#         return render_template("pages/things.jinja", things=things)
+            
+        """
+        result = client.execute(sql, [user_id])
+        tasks = result.rows
+    return render_template("pages/personal.jinja", tasks=tasks)
 
 
 #-----------------------------------------------------------
