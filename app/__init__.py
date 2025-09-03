@@ -299,6 +299,13 @@ def show_one_task(id):
 def register_form():
     return render_template("pages/register.jinja")
 
+#-----------------------------------------------------------
+# User login form route
+#-----------------------------------------------------------
+@app.get("/personal")
+def personal_list():
+    return render_template("pages/personal.jinja")
+  
 
 #-----------------------------------------------------------
 # User login form route
