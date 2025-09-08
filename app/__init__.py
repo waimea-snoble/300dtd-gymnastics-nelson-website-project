@@ -205,6 +205,35 @@ def show_one_task(id):
         else:
             # No, so show error
             return not_found_error()
+        
+
+#-----------------------------------------------------------
+# Home page route
+#-----------------------------------------------------------
+@app.get("/admin-home/")
+def show_admin_home():
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = """
+
+                    SELECT 
+                        users.id,
+                        users.name
+                    FROM volunteers
+                    JOIN users ON volunteers.user_id = users.id
+                    WHERE volunteers.task_id = ?
+
+            
+        """
+        params=[]
+        result = client.execute(sql, params)
+        users = result.rows
+
+        # And show them on the page
+        return render_template("pages/home.jinja", users=users)
+
+
+
 
 # #-----------------------------------------------------------
 # # Thing admin page route - Show details of a single thing
@@ -238,53 +267,53 @@ def show_one_task(id):
 #             return not_found_error()
 
 
-# #-----------------------------------------------------------
-# # Route for adding a thing, using data posted from a form
-# # - Restricted to logged in users
-# #-----------------------------------------------------------
-# @app.post("/add")
-# @login_required
-# def add_a_thing():
-#     # Get the data from the form
-#     name  = request.form.get("name")
-#     price = request.form.get("price")
+#-----------------------------------------------------------
+# Route for adding a thing, using data posted from a form
+# - Restricted to logged in users
+#-----------------------------------------------------------
+@app.post("/add")
+@login_required
+def add_a_task():
+    # Get the data from the form
+    name  = request.form.get("name")
+    description = request.form.get("description")
 
-#     # Sanitise the text inputs
-#     name = html.escape(name)
+    # Sanitise the text inputs
+    name = html.escape(name)
 
-#     # Get the user id from the session
-#     user_id = session["user_id"]
+    # Get the user id from the session
+    user_id = session["user_id"]
 
-#     with connect_db() as client:
-#         # Add the thing to the DB
-#         sql = "INSERT INTO things (name, price, user_id) VALUES (?, ?, ?)"
-#         params = [name, price, user_id]
-#         client.execute(sql, params)
+    with connect_db() as client:
+        # Add the thing to the DB
+        sql = "INSERT INTO tasks (name, description) VALUES (?, ?)"
+        params = [name, description]
+        client.execute(sql, params)
 
-#         # Go back to the home page
-#         flash(f"Thing '{name}' added", "success")
-#         return redirect("/things")
+        # Go back to the home page
+        flash(f"Task '{name}' added", "success")
+        return redirect("/")
 
 
-# #-----------------------------------------------------------
-# # Route for deleting a thing, Id given in the route
-# # - Restricted to logged in users
-# #-----------------------------------------------------------
-# @app.get("/delete/<int:id>")
-# @login_required
-# def delete_a_thing(id):
-#     # Get the user id from the session
-#     user_id = session["user_id"]
+#-----------------------------------------------------------
+# Route for deleting a thing, Id given in the route
+# - Restricted to logged in users
+#-----------------------------------------------------------
+@app.get("/delete/<int:id>")
+@login_required
+def delete_a_task(id):
+    # Get the user id from the session
+    user_id = session["user_id"]
 
-#     with connect_db() as client:
-#         # Delete the thing from the DB only if we own it
-#         sql = "DELETE FROM things WHERE id=? AND user_id=?"
-#         params = [id, user_id]
-#         client.execute(sql, params)
+    with connect_db() as client:
+        # Delete the thing from the DB only if we own it
+        sql = "DELETE FROM things WHERE id=? AND user_id=?"
+        params = [id, user_id]
+        client.execute(sql, params)
 
-#         # Go back to the home page
-#         flash("Thing deleted", "success")
-#         return redirect("/things")
+        # Go back to the home page
+        flash("Thing deleted", "success")
+        return redirect("/")
 
 
 
@@ -302,7 +331,7 @@ def register_form():
 #-----------------------------------------------------------
 # User login form route
 #-----------------------------------------------------------
-@app.get("/personal")
+@app.get("/personal-route")
 def personal_list():
     return render_template("pages/personal.jinja")
   

@@ -114,7 +114,7 @@ This Figma demo shows the UI with refinements applied:
 
 ### Testing
 
-I showed this design to my client and they said the colours looked dull
+I showed this design to my client and they said that it looks great but the colours looked a bit dull
 
 ### Changes / Improvements
 

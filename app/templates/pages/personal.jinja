@@ -30,6 +30,15 @@
                     </a>
                 </li>
 
+                    <a href="/volunteer/{{ task.id }}">
+
+
+    {% if task.signed_up %}
+        ☑
+    {% else %}
+        ☐
+    {% endif %}
+
             {% else %}
 
                 <p>None!</p>

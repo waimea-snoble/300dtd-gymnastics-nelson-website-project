@@ -57,7 +57,41 @@
     {# Only show if the admin is logged in #}
     {% if session.user_admin%}
 
-   <h1>hello</h1>
+    <article>
+
+<h2>Tasks</h2>
+<ul>
+    {% for task in tasks %}
+        <li>
+            <a href="/task/{{ task.id }}"><strong>{{ task.name }}</strong></a>
+            <a href="/delete/{{ task.id }}" onclick="return confirm('Really delete?');">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+
+    </article>
+
+            <h3>Add a New Task...</h3>
+
+        <form action="/add" method="POST">
+
+            <input
+                type="text"
+                 name="name"
+                placeholder="Name of new thing"
+                required
+            >
+
+            <input
+                type="text"
+                 name="description"
+                placeholder=""
+                required
+            >
+
+            <button>Add the Task</button>
+
+        </form>
 
     {% endif %}
 
