@@ -303,14 +303,18 @@ def add_a_task():
 @login_required
 def delete_a_task(id):
     # Get the user id from the session
-    user_id = session["user_id"]
 
     with connect_db() as client:
         # Delete the thing from the DB only if we own it
-        sql = "DELETE FROM things WHERE id=? AND user_id=?"
-        params = [id, user_id]
+        sql = "DELETE FROM tasks WHERE id=?"
+        
+        params = [id]
         client.execute(sql, params)
 
+        sql = "DELETE FROM volunteers WHERE task_id=?"
+
+        params = [id]
+        client.execute(sql, params)
         # Go back to the home page
         flash("Thing deleted", "success")
         return redirect("/")
