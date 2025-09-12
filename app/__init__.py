@@ -175,6 +175,32 @@ def personal():
     return render_template("pages/personal.jinja", tasks=tasks)
 
 
+
+#-----------------------------------------------------------
+# Personal Check box
+#-----------------------------------------------------------
+@app.get("/toggle-personal/<int:id>")
+def toggle_personal(id):
+    with connect_db() as client:
+        # Toggle the completed state
+        sql = "UPDATE tasks SET completed = NOT completed WHERE id = ?"
+        client.execute(sql, [id])
+
+        # Fetch all tasks for this user
+        sql = """
+            SELECT tasks.id, tasks.name, tasks.description,
+                tasks.signed_up, tasks.completed
+            FROM volunteers
+            JOIN tasks ON volunteers.task_id = tasks.id
+            WHERE volunteers.user_id = ?
+        """
+        user_id = session["user_id"]  # make sure user is logged in
+        result = client.execute(sql, [user_id])
+        tasks = result.rows
+
+    return render_template("pages/personal.jinja", tasks=tasks)
+
+
 #-----------------------------------------------------------
 # Thing page route - Show details of a single thing
 #-----------------------------------------------------------
@@ -302,22 +328,27 @@ def add_a_task():
 @app.get("/delete/<int:id>")
 @login_required
 def delete_a_task(id):
-    # Get the user id from the session
 
-    with connect_db() as client:
-        # Delete the thing from the DB only if we own it
-        sql = "DELETE FROM tasks WHERE id=?"
-        
-        params = [id]
-        client.execute(sql, params)
-
-        sql = "DELETE FROM volunteers WHERE task_id=?"
-
-        params = [id]
-        client.execute(sql, params)
-        # Go back to the home page
-        flash("Thing deleted", "success")
+        # Check if the logged-in user is admin
+    if int(session.get("user_admin", 0)) != 1:
+        flash("You are not allowed to delete tasks", "danger")
         return redirect("/")
+    
+    else:
+        with connect_db() as client:
+            # Delete the thing from the DB only if we own it
+            sql = "DELETE FROM tasks WHERE id=?"
+            
+            params = [id]
+            client.execute(sql, params)
+
+            sql = "DELETE FROM volunteers WHERE task_id=?"
+
+            params = [id]
+            client.execute(sql, params)
+            # Go back to the home page
+            flash("Thing deleted", "success")
+            return redirect("/")
 
 
 

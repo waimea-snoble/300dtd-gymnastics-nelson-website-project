@@ -30,6 +30,9 @@
                     </a>
                 </li>
 
+
+                
+
                     <a href="/volunteer/{{ task.id }}">
 
 
@@ -39,9 +42,24 @@
         ☐
     {% endif %}
 
+    </a>
+
+        <a href="/toggle-personal/{{ task.id }}">
+
+    {% if task.completed %}
+        ☑
+    {% else %}
+        ☐
+    {% endif %}
+
+    </a>
+
+
+
             {% else %}
 
                 <p>None!</p>
+                
 
             {% endfor %}
         </ul>
