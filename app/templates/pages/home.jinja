@@ -30,10 +30,10 @@
     <a href="/volunteer/{{ task.id }}">
 
 
-    {% if task.signed_up %}
-        ☑
-    {% else %}
+    {% if task.signed_up == 0 %}
         ☐
+    {% else %}
+        ☑
     {% endif %}
                     <a href="/task/{{ task.id }}">
 
@@ -45,6 +45,8 @@
             {% else %}
 
                 <p>None!</p>
+
+
 
             {% endfor %}
         </ul>
@@ -86,6 +88,13 @@
                 type="text"
                  name="description"
                 placeholder="Description"
+                required
+            >
+
+            <input
+                type="integer"
+                 name="required_amount"
+                placeholder="Required Amount"
                 required
             >
 

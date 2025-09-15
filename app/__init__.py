@@ -124,7 +124,7 @@ def toggle_volunteer(task_id):
                     # Toggle signed_up state
         sql = """
             UPDATE tasks
-            SET signed_up = NOT signed_up
+            SET signed_up = signed_up + 1
             WHERE id = ?
         """
         
@@ -303,6 +303,8 @@ def add_a_task():
     # Get the data from the form
     name  = request.form.get("name")
     description = request.form.get("description")
+    required_amount = request.form.get("required_amount")
+
 
     # Sanitise the text inputs
     name = html.escape(name)
@@ -312,8 +314,8 @@ def add_a_task():
 
     with connect_db() as client:
         # Add the thing to the DB
-        sql = "INSERT INTO tasks (name, description) VALUES (?, ?)"
-        params = [name, description]
+        sql = "INSERT INTO tasks (name, description, required_amount) VALUES (?, ?, ?)"
+        params = [name, description, required_amount]
         client.execute(sql, params)
 
         # Go back to the home page
