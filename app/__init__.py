@@ -38,7 +38,8 @@ def show_all_tasks():
         sql = """
             SELECT tasks.id,
                    tasks.name,
-                   tasks.signed_up
+                   tasks.signed_up,
+                   tasks.required_amount
 
             FROM tasks
         """
@@ -115,6 +116,12 @@ def toggle_volunteer(task_id):
             sql = "DELETE FROM volunteers WHERE user_id = ? AND task_id = ?"
             client.execute(sql, params)
             flash("Task no longer signed up", "Success")
+
+            sql = """
+            UPDATE tasks
+            SET signed_up = signed_up - 1
+            WHERE id = ?
+        """
         else:
             # not signed up so sign up
             sql = "INSERT INTO volunteers (user_id, task_id) VALUES (?, ?)"
@@ -122,11 +129,11 @@ def toggle_volunteer(task_id):
             flash("Task now signed up", "success")
 
                     # Toggle signed_up state
-        sql = """
-            UPDATE tasks
-            SET signed_up = signed_up + 1
-            WHERE id = ?
-        """
+            sql = """
+                UPDATE tasks
+                SET signed_up = signed_up + 1
+                WHERE id = ?
+            """
         
         client.execute(sql, params2)
  
