@@ -28,27 +28,35 @@ init_error(app)     # Handle errors and exceptions
 init_datetime(app)  # Handle UTC dates in timestamps
 
 
+
+
+
+
+
+
 #-----------------------------------------------------------
 # Home page route
 #-----------------------------------------------------------
 @app.get("/")
 def show_all_tasks():
+    user_id = session.get("user_id", 0)  # 0 if not logged in
     with connect_db() as client:
-        # Get all the things from the DB
+        # Fetch all tasks
         sql = """
             SELECT tasks.id,
                    tasks.name,
                    tasks.signed_up,
                    tasks.required_amount
-
             FROM tasks
         """
-        params=[]
-        result = client.execute(sql, params)
-        tasks = result.rows
+        tasks = client.execute(sql, ()).rows
 
-        # And show them on the page
-        return render_template("pages/home.jinja", tasks=tasks)
+        # Fetch all task_ids the current user has signed up for
+        sql = "SELECT task_id FROM volunteers WHERE user_id = ?"
+        user_task_rows = client.execute(sql, [user_id]).rows
+        user_task_ids = {row["task_id"] for row in user_task_rows}  # set of task IDs
+
+    return render_template("pages/home.jinja", tasks=tasks, user_task_ids=user_task_ids)
     
 
 #-----------------------------------------------------------
@@ -170,7 +178,7 @@ def personal():
                         tasks.name,
                         tasks.description,
                         tasks.signed_up,
-                        tasks.completed
+                        tasks.required_amount
                     FROM volunteers
                     JOIN tasks ON volunteers.task_id = tasks.id
                     WHERE volunteers.user_id = ?

@@ -31,10 +31,10 @@ Gymnastics Nelson
             <a href="/volunteer/{{ task.id }}">
 
 
-                {% if task.signed_up == 0 %}
-                ☐
-                {% else %}
+                {% if task.id in user_task_ids %}
                 ☑
+                {% else %}
+                ☐
                 {% endif %}
                 <a href="/task/{{ task.id }}">
 
