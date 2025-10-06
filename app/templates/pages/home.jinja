@@ -67,7 +67,7 @@ Gymnastics Nelson
     <ul>
         {% for task in tasks %}
         <li>
-            <a href="/task/{{ task.id }}"><strong>{{ task.name }}</strong></a>
+            <a href="/admin-task/{{ task.id }}"><strong>{{ task.name }}</strong></a>
             <a href="/delete/{{ task.id }}" onclick="return confirm('Really delete?');">Delete</a>
         </li>
         {% endfor %}

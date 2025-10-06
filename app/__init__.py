@@ -249,6 +249,39 @@ def show_one_task(id):
         
 
 #-----------------------------------------------------------
+# Admin task page route - Show who has signed up for a task
+#-----------------------------------------------------------
+@app.get("/admin-task/<int:id>")
+def show_task_volunteers(id):
+    with connect_db() as client:
+        # Get task details
+        sql = """
+            SELECT id, name, description, signed_up
+            FROM tasks
+            WHERE id = ?
+        """
+        task_result = client.execute(sql, [id])
+        if not task_result.rows:
+            return not_found_error()
+
+        task = task_result.rows[0]
+
+        # Get all users who have signed up for this task
+        sql = """
+            SELECT users.name
+            FROM volunteers
+            JOIN users ON volunteers.user_id = users.id
+            WHERE volunteers.task_id = ?
+        """
+        users_result = client.execute(sql, [id])
+        users = users_result.rows  
+        
+
+        return render_template("pages/admin-volunteer-list.jinja", task=task, users=users)
+
+        
+
+#-----------------------------------------------------------
 # Home page route
 #-----------------------------------------------------------
 @app.get("/admin-home/")
