@@ -251,7 +251,7 @@ def show_one_task(id):
 #-----------------------------------------------------------
 # Admin task page route - Show who has signed up for a task
 #-----------------------------------------------------------
-@app.get("/admin-task/<int:id>")
+@app.get("/admin-task-volunteers/<int:id>")
 def show_task_volunteers(id):
     with connect_db() as client:
         # Get task details
