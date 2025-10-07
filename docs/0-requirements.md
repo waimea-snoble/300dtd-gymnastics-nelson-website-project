@@ -103,41 +103,41 @@ I will need to make sure that the website functions correctly on a range of devi
 
 # User Experience (UX) Principles
 
-## NAME OF UX PRINCIPLE 1
+## Usable
 
-Replace this text with a clear explanation of what the principle means.
-
-### Relevance to the System
-
-Replace this text with an explanation of why the principle is relevant to this particular project.
-
-### Impact / Considerations
-
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
-
-
-## NAME OF UX PRINCIPLE 2
-
-Replace this text with a clear explanation of what the principle means.
+This means that the website is easy to use and the end user can navigate through it with minimal confusion
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the principle is relevant to this particular project.
+This is relevant for my project because there will be a variety of users using my website, so i need to make it easy tp use for everyone
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
+I will need to consider using a simple layout, forms are easy to use and submit, and having the layout of the website consistent. this is important because if the website was not easy to use, the users might get confused or frustrated and not want to use the website.
 
 
-## NAME OF UX PRINCIPLE 3
+## Useful
 
-Replace this text with a clear explanation of what the principle means.
+Useful means that the website provides value and fulfills the users need
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the principle is relevant to this particular project.
+This is relevant to my project because the gymnasts and caregivers at gymnastics Nelson need a website so that they can help out with events in the future.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
+I will need to think about key features that is needed for the user, such as being able to sign up for a task and seeing which tasks they have signed up for, easily being bale to cancel a signed up task, and saving the tasks they have signed for by logging in. if the website is not actually useful they will not use it.
+
+
+## Findable
+
+Findable means that everything on the website is easy to find and the user wont need to spend a long time on the website to find something.
+
+### Relevance to the System
+
+This is relevant for my project because there will be older users meaning that the they might already struggle trying to navigate websites, so its important that my website is really easy to navigate.
+
+### Impact / Considerations
+
+I need to make sure that my navigation buttons, forms and pages are clear and easy to find, this is important because if i didn't make anything easy to find, the users might struggle with the website and be frustrated with my design.
 
