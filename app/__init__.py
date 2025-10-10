@@ -228,7 +228,7 @@ def show_one_task(id):
                    tasks.name,
                    tasks.description,
                    tasks.signed_up,
-                   tasks.completed
+                   tasks.required_amount
 
             FROM tasks
 
