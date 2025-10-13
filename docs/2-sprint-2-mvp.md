@@ -26,11 +26,26 @@ The key functionality of the web app was implemented:
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Register
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I am testing what happens whan a user registers for the website. It went well as teh user was added to the database.
 
-![Alt text](image.png)
+
+
+### Changes / Improvements
+
+Replace this text with notes any improvements you made as a result of the testing.
+
+![Register](screenshots/user-register.gif)
+
+
+---
+
+## Testing Add Task
+
+I am testing the add task button. The task was added.
+
+![Add task](screenshots/add-task.gif)
 
 ### Changes / Improvements
 
@@ -41,11 +56,11 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Delete Task
 
 Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Delete task](screenshots/delete-task.gif)
 
 ### Changes / Improvements
 
@@ -56,26 +71,11 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Volunteer/Unvolunteer
 
 Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
----
-
-## Testing FEATURE NAME HERE
-
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Volunteer/Unvolunteer](screenshots/volunteer-and-unvolunteer.gif)
 
 ### Changes / Improvements
 
