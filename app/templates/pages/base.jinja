@@ -45,7 +45,11 @@
                 {% endif %}
 
                 <li><a href="/">Home</a></li>
+
+                {% if session.user_id %}
                 <li><a href="/personal">Personal List</a></li>
+                {% else %}
+                {% endif %}
 
                 {% if session.user_id %}
 

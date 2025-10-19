@@ -169,25 +169,34 @@ def toggle_volunteer(task_id):
 #-----------------------------------------------------------
 @app.route("/personal/")
 def personal():
-    user_id = session["user_id"]  # Get the logged-in user
+    
     with connect_db() as client:
-        sql = """
 
-                    SELECT 
-                        tasks.id,
-                        tasks.name,
-                        tasks.description,
-                        tasks.signed_up,
-                        tasks.required_amount
-                    FROM volunteers
-                    JOIN tasks ON volunteers.task_id = tasks.id
-                    WHERE volunteers.user_id = ?
+        # Check if the user is logged in
+        if (not session.get("user_id")):
+            flash("Sorry you need to log in first to use this website.", "danger")
+            return redirect("/")
+        
+        else:
+            user_id = session["user_id"]  # Get the logged-in user
 
-            
-        """
-        result = client.execute(sql, [user_id])
-        tasks = result.rows
-    return render_template("pages/personal.jinja", tasks=tasks)
+            sql = """
+
+                        SELECT 
+                            tasks.id,
+                            tasks.name,
+                            tasks.description,
+                            tasks.signed_up,
+                            tasks.required_amount
+                        FROM volunteers
+                        JOIN tasks ON volunteers.task_id = tasks.id
+                        WHERE volunteers.user_id = ?
+
+                
+            """
+            result = client.execute(sql, [user_id])
+            tasks = result.rows
+        return render_template("pages/personal.jinja", tasks=tasks)
 
 
 
@@ -348,6 +357,9 @@ def show_admin_home():
 @app.post("/add")
 @login_required
 def add_a_task():
+
+
+    
     # Get the data from the form
     name  = request.form.get("name")
     description = request.form.get("description")

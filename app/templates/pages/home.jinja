@@ -17,6 +17,12 @@ Gymnastics Nelson
 
 {% block content %}
 
+{% if not session.user_id %}
+    <p>Sorry you need to <a href="/login">log in</a> first to use this website.</p>
+{% else %}
+
+
+
 <h1>Tasks</h1>
 
 
@@ -55,6 +61,7 @@ Gymnastics Nelson
 
 </article>
 
+{% endif %}
 {% endif %}
 
 
