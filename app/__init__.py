@@ -174,7 +174,7 @@ def personal():
 
         # Check if the user is logged in
         if (not session.get("user_id")):
-            flash("Sorry you need to log in first to use this website.", "danger")
+            flash("Sorry, you need to log in first to use this website.", "error")
             return redirect("/")
         
         else:
@@ -203,26 +203,26 @@ def personal():
 #-----------------------------------------------------------
 # Personal Check box
 #-----------------------------------------------------------
-@app.get("/toggle-personal/<int:id>")
-def toggle_personal(id):
-    with connect_db() as client:
-        # Toggle the completed state
-        sql = "UPDATE tasks SET completed = NOT completed WHERE id = ?"
-        client.execute(sql, [id])
+# @app.get("/toggle-personal/<int:id>")
+# def toggle_personal(id):
+#     with connect_db() as client:
+#         # Toggle the completed state
+#         sql = "UPDATE tasks SET completed = NOT completed WHERE id = ?"
+#         client.execute(sql, [id])
 
-        # Fetch all tasks for this user
-        sql = """
-            SELECT tasks.id, tasks.name, tasks.description,
-                tasks.signed_up, tasks.completed
-            FROM volunteers
-            JOIN tasks ON volunteers.task_id = tasks.id
-            WHERE volunteers.user_id = ?
-        """
-        user_id = session["user_id"]  # make sure user is logged in
-        result = client.execute(sql, [user_id])
-        tasks = result.rows
+#         # Fetch all tasks for this user
+#         sql = """
+#             SELECT tasks.id, tasks.name, tasks.description,
+#                 tasks.signed_up, tasks.completed
+#             FROM volunteers
+#             JOIN tasks ON volunteers.task_id = tasks.id
+#             WHERE volunteers.user_id = ?
+#         """
+#         user_id = session["user_id"]  # make sure user is logged in
+#         result = client.execute(sql, [user_id])
+#         tasks = result.rows
 
-    return render_template("pages/personal.jinja", tasks=tasks)
+#     return render_template("pages/personal.jinja", tasks=tasks)
 
 
 #-----------------------------------------------------------
@@ -263,30 +263,47 @@ def show_one_task(id):
 @app.get("/admin-task-volunteers/<int:id>")
 def show_task_volunteers(id):
     with connect_db() as client:
-        # Get task details
-        sql = """
-            SELECT id, name, description, signed_up
-            FROM tasks
-            WHERE id = ?
-        """
-        task_result = client.execute(sql, [id])
-        if not task_result.rows:
-            return not_found_error()
 
-        task = task_result.rows[0]
 
-        # Get all users who have signed up for this task
-        sql = """
-            SELECT users.name
-            FROM volunteers
-            JOIN users ON volunteers.user_id = users.id
-            WHERE volunteers.task_id = ?
-        """
-        users_result = client.execute(sql, [id])
-        users = users_result.rows  
+        # Check if the user is logged in
+        if (not session.get("user_id")):
+            flash("You are not allowed to access that page.", "error")
+            return redirect("/")
         
+        else:
 
-        return render_template("pages/admin-volunteer-list.jinja", task=task, users=users)
+            # Check if the logged-in user is admin
+            if int(session.get("user_admin", 0)) != 1:
+                flash("You are not allowed to access that page", "error")
+                return redirect("/")
+            
+            else:
+                user_id = session["user_id"]  # Get the logged-in user
+
+                # Get task details
+                sql = """
+                    SELECT id, name, description, signed_up
+                    FROM tasks
+                    WHERE id = ?
+                """
+                task_result = client.execute(sql, [id])
+                if not task_result.rows:
+                    return not_found_error()
+
+                task = task_result.rows[0]
+
+                # Get all users who have signed up for this task
+                sql = """
+                    SELECT users.name
+                    FROM volunteers
+                    JOIN users ON volunteers.user_id = users.id
+                    WHERE volunteers.task_id = ?
+                """
+                users_result = client.execute(sql, [id])
+                users = users_result.rows  
+                
+
+                return render_template("pages/admin-volunteer-list.jinja", task=task, users=users)
 
         
 
@@ -393,7 +410,7 @@ def delete_a_task(id):
 
         # Check if the logged-in user is admin
     if int(session.get("user_admin", 0)) != 1:
-        flash("You are not allowed to delete tasks", "danger")
+        flash("You are not allowed to delete tasks", "error")
         return redirect("/")
     
     else:
@@ -445,6 +462,7 @@ def login_form():
 # Route for adding a user when registration form submitted
 #-----------------------------------------------------------
 @app.post("/add-user")
+@login_required
 def add_user():
     # Get the data from the form
     name = request.form.get("name")

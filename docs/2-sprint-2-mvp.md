@@ -58,7 +58,7 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ## Testing Delete Task
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I am testing what happens when a task is deleted. The task was deleted from the database and all of the volunteers of that task as well.
 
 ![Delete task](screenshots/delete-task.gif)
 
@@ -71,9 +71,9 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ---
 
-## Testing Volunteer/Unvolunteer
+## Testing Volunteer/Un volunteer
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I am testing what happens when a user volunteers and un volunteers for a task. When volunteering, a new item is created in the volunteer table in the database and the signed up value in the task table is increased by one. When the user un volunteers the signed up value in the tasks table decreases by one and the volunteer item in the volunteers table is deleted.
 
 ![Volunteer/Unvolunteer](screenshots/volunteer-and-unvolunteer.gif)
 
@@ -85,6 +85,19 @@ Replace this text with notes any improvements you made as a result of the testin
 
 
 ---
+
+## Testing Volunteer/un volunteer when the signed up amount reaches the required amount
+
+Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+
+**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+
+### Changes / Improvements
+
+Replace this text with notes any improvements you made as a result of the testing.
+
+**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+
 
 ## Testing FEATURE NAME HERE
 

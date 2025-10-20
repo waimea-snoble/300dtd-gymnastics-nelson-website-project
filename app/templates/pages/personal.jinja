@@ -16,7 +16,7 @@
 
 {% block content %}
 
-    <h1>Things...</h1>
+    <h1>Tasks you have signed up for</h1>
 
 
     <article>
@@ -25,6 +25,13 @@
             {% for task in tasks %}
 
                 <li>
+
+
+                    {% if task.signed_up %}
+                        ☑
+                    {% else %}
+                        ☐
+                    {% endif %}
                     <a href="/personal/{{ task.id }}">
                         <strong>{{ task.name }}</strong> 
                     </a>
@@ -36,21 +43,17 @@
                     <a href="/volunteer/{{ task.id }}">
 
 
-    {% if task.signed_up %}
-        ☑
-    {% else %}
-        ☐
-    {% endif %}
+
 
     </a>
 
-        <a href="/toggle-personal/{{ task.id }}">
+        {# <a href="/toggle-personal/{{ task.id }}">
 
     {% if task.completed %}
         ☑
     {% else %}
         ☐
-    {% endif %}
+    {% endif %} #}
 
     </a>
 
