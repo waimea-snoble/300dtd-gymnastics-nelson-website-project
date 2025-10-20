@@ -88,9 +88,9 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ## Testing Volunteer/un volunteer when the signed up amount reaches the required amount
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I am testing what happens when a user signs up for a taskl that is about to reach the required amount. The task dissapears from the home page but is still in their personal list and in the database the signed up amount increases and a new volunteer is made. When the user un volunteers from the task it reappears on the home page and the signed up amount decreases by one and the volunteer is deleted.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Volunteer/Unvolunteer-required-amount](screenshots/volunteer-and-unvolunteer-required-amount.gif)
 
 ### Changes / Improvements
 

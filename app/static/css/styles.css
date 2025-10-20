@@ -3,6 +3,43 @@
 =====================================================*/
 
 
+
+
+header {
+    background-color: #2677FB;
+}
+
+.title {
+    color: black;
+}
+
+.navigation {
+    color: black;
+}
+
+.navigation a{
+    color: black;
+}
+
+.task-list {
+    background-color: #2FA9F4;
+}
+
+.task-list a{
+    color: black;
+    
+}
+
+.task-list li{
+    text-align: center;
+}
+
+/* MAIN PAGE -------------------------------------------- */
+
+main {
+    background-color: #F8FAFA;
+}
+
 /* ABOUT PAGE -------------------------------------------- */
 
 #tech-stack {
