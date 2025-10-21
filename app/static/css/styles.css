@@ -47,6 +47,11 @@ header {
     list-style: none;
 }
 
+button {
+    background-color: #2FA9F4;
+    border-color: #2FA9F4;
+}
+
 /* MAIN PAGE -------------------------------------------- */
 
 

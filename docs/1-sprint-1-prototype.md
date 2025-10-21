@@ -19,7 +19,6 @@ This is my initial database design linking the users and tasks to make a volunte
 
 ### Required Data Input
 
-Replace this text with a description of what data will be input, and where / how it will be obtained.
 
 The end-user will input information about themselves when they are signing up. The admin will be inputting information about the tasks when they want a new one created.
 
@@ -29,7 +28,6 @@ The user can mark a task as signed up or completed (used for personal tracking) 
 
 ### Required Data Output
 
-Replace this text with a description of the outputs for the system - what types of data will be displayed?
 
 The system will display output data by showing the list of tasks on the home screen, showing a list of tasks along with who has signed up for it on the admin homescreen, the details of each task, the signed up and completed check box next to each task.
 
