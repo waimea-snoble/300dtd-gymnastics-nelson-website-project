@@ -19,7 +19,7 @@
     <h1>Tasks you have signed up for</h1>
 
 
-    <article>
+    <article class = "task-list">
 
         <ul>
             {% for task in tasks %}
@@ -29,15 +29,16 @@
                 <a href="/volunteer/{{ task.id }}">
 
 
+                    <a href="/task/{{ task.id }}">
+                        <strong>{{ task.name }}</strong> 
+                    </a>
                     {% if task.signed_up %}
                         ☑
                         </a>
                     {% else %}
                         ☐
                     {% endif %}
-                    <a href="/personal/{{ task.id }}">
-                        <strong>{{ task.name }}</strong> 
-                    </a>
+
                 </li>
 
 

@@ -22,23 +22,60 @@ header {
 }
 
 .task-list {
-    background-color: #2FA9F4;
+
+    width: fit-content;
+    margin: 0 auto;
+    align-items: center;
+    padding-left: 0;
+    
 }
 
 .task-list a{
     color: black;
+    text-decoration: none;
     
 }
 
 .task-list li{
+    background-color: #2FA9F4;
+    width: fit-content;
     text-align: center;
+    margin-bottom: 20px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 15px;
+    list-style: none;
 }
 
 /* MAIN PAGE -------------------------------------------- */
 
-main {
-    background-color: #F8FAFA;
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+
+main {
+    flex: 1;
+    margin-bottom: 0;  
+}
+
+main h1 {
+    text-align: center;
+}
+
+footer {
+    background-color: #2677FB;
+    text-align: center;
+}
+
+footer p {
+    color: black;
+}
+
 
 /* ABOUT PAGE -------------------------------------------- */
 

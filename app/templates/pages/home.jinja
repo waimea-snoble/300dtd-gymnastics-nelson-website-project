@@ -36,17 +36,17 @@ Gymnastics Nelson
         <li>
             <a href="/volunteer/{{ task.id }}">
 
-
-                {% if task.id in user_task_ids %}
-                ☑
-                {% else %}
-                ☐
-                {% endif %}
                 <a href="/task/{{ task.id }}">
 
 
                     <strong>{{ task.name }}</strong>
                 </a>
+                {% if task.id in user_task_ids %}
+                ☑
+                {% else %}
+                ☐
+                {% endif %}
+
         </li>
         {% endif %}
 
@@ -68,7 +68,7 @@ Gymnastics Nelson
 {# Only show if the admin is logged in #}
 {% if session.user_admin%}
 
-<article>
+<article class = "task-list">
 
 
     <ul>
