@@ -2,27 +2,32 @@
 
 ## Addressing Relevant Implications
 
-### NAME OF IMPLICATION 1
+### Functionality
+
+I tested all the main features such as registering, logging in, adding, deleting, and signing up for tasks to ensure they all worked well without any bugs. Now, each function should work as intended.
+
+
+### Useability
 
 Replace this text with notes about what you did during the project to address the implication - design features, etc.
 
 
-### NAME OF IMPLICATION 2
+### Aesthetics
 
 Replace this text with notes about what you did during the project to address the implication - design features, etc.
 
 
-### NAME OF IMPLICATION 3
+### Social
 
 Replace this text with notes about what you did during the project to address the implication - design features, etc.
 
 
-### NAME OF IMPLICATION 4
+### Privacy
 
 Replace this text with notes about what you did during the project to address the implication - design features, etc.
 
 
-### NAME OF IMPLICATION 5
+### Accessability
 
 Replace this text with notes about what you did during the project to address the implication - design features, etc.
 

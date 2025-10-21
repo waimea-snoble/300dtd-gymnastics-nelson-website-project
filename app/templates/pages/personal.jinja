@@ -26,18 +26,20 @@
 
                 <li>
 
-                <a href="/volunteer/{{ task.id }}">
+                
 
 
                     <a href="/task/{{ task.id }}">
                         <strong>{{ task.name }}</strong> 
                     </a>
+                    <a href="/volunteer/{{ task.id }}">
                     {% if task.signed_up %}
                         ☑
                         </a>
                     {% else %}
                         ☐
                     {% endif %}
+                    
 
                 </li>
 

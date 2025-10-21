@@ -34,18 +34,20 @@ Gymnastics Nelson
         {% if task.signed_up < task.required_amount %}
 
         <li>
-            <a href="/volunteer/{{ task.id }}">
+            
 
                 <a href="/task/{{ task.id }}">
 
 
                     <strong>{{ task.name }}</strong>
                 </a>
+                <a href="/volunteer/{{ task.id }}">
                 {% if task.id in user_task_ids %}
                 ☑
                 {% else %}
                 ☐
                 {% endif %}
+                </a>
 
         </li>
         {% endif %}

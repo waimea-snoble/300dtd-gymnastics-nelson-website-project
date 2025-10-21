@@ -116,5 +116,5 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+This sprint moved the project forward by turning it into a functional website. The main features such as registering a user, adding and deleting tasks and there were some small bugs but were fixed easily. Now the website is ready for a final polish in sprint 3.
 

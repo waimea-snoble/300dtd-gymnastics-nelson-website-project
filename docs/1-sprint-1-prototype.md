@@ -127,5 +127,5 @@ I changed the colour scheme to brighter shade of blue and my client said that lo
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+THis sprint allowed me to make a working prototype of the website so i could test it with my client without coding the whole thing. I kept improving the design based on the clients feedback which led me to the final product, now the prototype is ready to be turned into a website in sprint 2.
 
