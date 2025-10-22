@@ -9,12 +9,12 @@ I tested all the main features such as registering, logging in, adding, deleting
 
 ### Useability
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I addressed this implication by following most of Neilsen's useability heuristics. I made sure the website design was consistent throughout every page as well as telling them when their username or password is incorrect when logging in. I also added a feature where the user can view all of the tasks they have signed uop for so they don't have to remember them and telling them if a page couldn't be found.
 
 
 ### Aesthetics
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I addressed "aesthetics" by talking to my client about what colours to use to ensure that the website is the most aesthetically pleasing.
 
 
 ### Social
@@ -24,12 +24,12 @@ Replace this text with notes about what you did during the project to address th
 
 ### Privacy
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I addressed this by keeping all of the users information in a database as well as making sure the password is stored as a password hash so even if the database is breached, their passwords are safe.
 
 
 ### Accessability
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+Replace this text with not4es about what you did during the project to address the implication - design features, etc.
 
 
 ---
