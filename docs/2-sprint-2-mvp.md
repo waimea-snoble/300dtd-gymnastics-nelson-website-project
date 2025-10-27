@@ -99,9 +99,9 @@ Replace this text with notes any improvements you made as a result of the testin
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
-## Testing FEATURE NAME HERE
+## Feedback from client
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+After testing all of teh features to make sure they work correctly I showed the website to my client where they said that the website functions great and works how they expected it to.
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
 
