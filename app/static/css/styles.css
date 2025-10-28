@@ -5,7 +5,7 @@
 
 
 
-header {
+.header {
     background-color: #2677FB;
 }
 
@@ -77,12 +77,12 @@ main h1 {
     text-align: center;
 }
 
-footer {
+.footer {
     background-color: #2677FB;
     text-align: center;
 }
 
-footer p {
+.footer p {
     color: black;
 }
 
