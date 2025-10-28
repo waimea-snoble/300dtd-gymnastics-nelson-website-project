@@ -6,7 +6,11 @@
 
 
 .header {
+
+
     background-color: #2677FB;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .title {
@@ -78,8 +82,13 @@ main h1 {
 }
 
 .footer {
+    display: flex;
+    align-items: center;
     background-color: #2677FB;
-    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: 4rem;
+    justify-content: center;
 }
 
 .footer p {
