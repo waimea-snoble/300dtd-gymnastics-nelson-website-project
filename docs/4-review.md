@@ -4,7 +4,7 @@
 
 ### Functionality
 
-I tested all the main features such as registering, logging in, adding, deleting, and signing up for tasks to ensure they all worked well without any bugs. Now, each function should work as intended.
+I tested all the main features such as registering, logging in, adding, deleting, and signing up for tasks. I also made sure that only the correct password would work when logging in to ensure the features all worked well without any bugs. Now, each function should work as intended.
 
 
 ### Useability
@@ -14,17 +14,17 @@ I addressed this implication by following most of Neilsen's useability heuristic
 
 ### Aesthetics
 
-I addressed "aesthetics" by talking to my client about what colours to use to ensure that the website is the most aesthetically pleasing.
+I addressed "aesthetics" by talking to my client about what colours to use to ensure that the website is the most aesthetically pleasing. We decided on a clean blue ans white theme to make the website look simple but professional, as well as making sure the font i used was easy to read.
 
 
 ### Social
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+I addressed this implication by not using any language or design choices that could cause offense to any group of people.
 
 
 ### Privacy
 
-I addressed this by keeping all of the users information in a database as well as making sure the password is stored as a password hash so even if the database is breached, their passwords are safe.
+I addressed this by keeping all of the users information in a database as well as making sure the password is stored as a password hash so even if the database is breached, their passwords are safe. I also made sure that information such as the user's contact details can only be accessed by the admin.
 
 
 ### Accessability
