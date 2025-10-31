@@ -2,11 +2,11 @@
 
 ## Identified Problem or Need
 
-At Gymnastics Nelson all of the volunteering for events is done on peice of paper, where people have to manually write their contact details every time they want to volunteer for something. I will solve this by making a website that each user can log into and save their information so that they don't need to input it every time.
+At Gymnastics Nelson all of the volunteering for events is done on piece of paper, where people have to manually write their contact details every time they want to volunteer for something. I will solve this by making a website that each user can log into and save their information so that they don't need to input it every time.
 
 ## End-User Requirements
 
-My end users could be people of all ages, ranging from gymnasts comepeting in the events, or parents, grandparents, caregivers, or siblings who want to help out. 
+My end users could be people of all ages, ranging from gymnasts competing in the events, or parents, grandparents, caregivers, or siblings who want to help out. 
 
 ## Proposed Solution
 
@@ -18,11 +18,11 @@ I intend to solve this problem by making a website where the users can log in an
 
 ## Fuctionality
 
-Funcionality means that the website does everything as intended, wont crash, has no bugs, and matches the purpose of the website I am creating.
+Functionality means that the website does everything as intended, wont crash, has no bugs, and matches the purpose of the website I am creating.
 
 ### Relevance to the System
 
-Fuctionality should be relevant to every project because if it doesn't function as intended. the end-user might have a hard time navigating each page.
+Functionality should be relevant to every project because if it doesn't function as intended. the end-user might have a hard time navigating each page.
 
 ### Impact / Considerations
 

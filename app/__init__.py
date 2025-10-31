@@ -59,49 +59,9 @@ def show_all_tasks():
     return render_template("pages/home.jinja", tasks=tasks, user_task_ids=user_task_ids)
     
 
-#-----------------------------------------------------------
-#  Update the volunteer status for a task
-#-----------------------------------------------------------
-# @app.get("/update_volunteer_status/<int:id>")
-# def update_volunteer(id):
-#     with connect_db() as client:
-#         # Toggle signed_up state
-#         sql = """
-#             UPDATE tasks
-#             SET signed_up = NOT signed_up
-#             WHERE id = ?
-#         """
-        
-#         params = [id]
-#         client.execute(sql, params)
-
-#         return redirect("/")
-
-    
-#-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
-# - Restricted to logged in users
-#-----------------------------------------------------------
-# @app.post("/volunteer/")
-# @login_required
-# def volunteer_task(task_id):
-
-#     # Get the user id from the session
-#     user_id = session["user_id"]
-
-#     with connect_db() as client:
-
-#         # Add the thing to the DB
-#         sql = "INSERT INTO volunteers (user_id, task_id) VALUES (?, ?)"
-#         params = [user_id, task_id]
-#         client.execute(sql, params)
-
-#         # Go back to the home page
-#         flash(f"Thank you for signing up")
-#         return redirect("/")
 
 #-----------------------------------------------------------
-# Favouriting route
+# volunteering route
 #-----------------------------------------------------------
 @app.get("/volunteer/<int:task_id>")
 @login_required
@@ -110,7 +70,7 @@ def toggle_volunteer(task_id):
     user_id = session["user_id"]
  
     with connect_db() as client:
-        # Check if this exercise is favourited
+        # Check if this user has signed up
         sql = "SELECT * FROM volunteers WHERE user_id = ? AND task_id = ?"
         params = [user_id, task_id]
         params2 = [task_id]
@@ -148,24 +108,9 @@ def toggle_volunteer(task_id):
     # Redirect back to the current page
     return redirect(request.referrer or "/")
 
-# #-----------------------------------------------------------
-# # About page route
-# #-----------------------------------------------------------
-# @app.get("/about/")
-# def about():
-#     return render_template("pages/about.jinja")
-
-
-# #-----------------------------------------------------------
-# # About page route
-# #-----------------------------------------------------------
-# @app.get("/about/")
-# def about():
-#     return render_template("pages/about.jinja")
-
 
 #-----------------------------------------------------------
-# Things page route - Show all the things, and new thing form
+# Personal page route - Show all the tasks the user has signed up for
 #-----------------------------------------------------------
 @app.route("/personal/")
 def personal():
@@ -201,32 +146,7 @@ def personal():
 
 
 #-----------------------------------------------------------
-# Personal Check box
-#-----------------------------------------------------------
-# @app.get("/toggle-personal/<int:id>")
-# def toggle_personal(id):
-#     with connect_db() as client:
-#         # Toggle the completed state
-#         sql = "UPDATE tasks SET completed = NOT completed WHERE id = ?"
-#         client.execute(sql, [id])
-
-#         # Fetch all tasks for this user
-#         sql = """
-#             SELECT tasks.id, tasks.name, tasks.description,
-#                 tasks.signed_up, tasks.completed
-#             FROM volunteers
-#             JOIN tasks ON volunteers.task_id = tasks.id
-#             WHERE volunteers.user_id = ?
-#         """
-#         user_id = session["user_id"]  # make sure user is logged in
-#         result = client.execute(sql, [user_id])
-#         tasks = result.rows
-
-#     return render_template("pages/personal.jinja", tasks=tasks)
-
-
-#-----------------------------------------------------------
-# Thing page route - Show details of a single thing
+# Task page route - Show details of a single task
 #-----------------------------------------------------------
 @app.get("/task/<int:id>")
 def show_one_task(id):
@@ -294,7 +214,7 @@ def show_task_volunteers(id):
 
                 # Get all users who have signed up for this task
                 sql = """
-                    SELECT users.name
+                    SELECT users.name, users.phone
                     FROM volunteers
                     JOIN users ON volunteers.user_id = users.id
                     WHERE volunteers.task_id = ?
@@ -333,40 +253,6 @@ def show_admin_home():
         return render_template("pages/home.jinja", users=users)
 
 
-
-
-# #-----------------------------------------------------------
-# # Thing admin page route - Show details of a single thing
-# #-----------------------------------------------------------
-# @app.get("/task/<int:id>")
-# def show_one_task(id):
-#     with connect_db() as client:
-#         # Get the task details from the DB, including the owner info
-#         sql = """
-#             SELECT things.id,
-#                    things.name,
-#                    things.user_id,
-#                    users.name AS owner
-
-#             FROM things
-#             JOIN users ON things.user_id = users.id
-
-#             WHERE things.id=?
-#         """
-#         params = [id]
-#         result = client.execute(sql, params)
-
-#         # Did we get a result?
-#         if result.rows:
-#             # yes, so show it on the page
-#             thing = result.rows[0]
-#             return render_template("pages/thing.jinja", thing=thing)
-
-#         else:
-#             # No, so show error
-#             return not_found_error()
-
-
 #-----------------------------------------------------------
 # Route for adding a thing, using data posted from a form
 # - Restricted to logged in users
@@ -390,7 +276,7 @@ def add_a_task():
     user_id = session["user_id"]
 
     with connect_db() as client:
-        # Add the thing to the DB
+        # Add the task to the DB
         sql = "INSERT INTO tasks (name, description, required_amount) VALUES (?, ?, ?)"
         params = [name, description, required_amount]
         client.execute(sql, params)
@@ -401,7 +287,7 @@ def add_a_task():
 
 
 #-----------------------------------------------------------
-# Route for deleting a thing, Id given in the route
+# Route for deleting a task, Id given in the route
 # - Restricted to logged in users
 #-----------------------------------------------------------
 @app.get("/delete/<int:id>")
@@ -528,7 +414,7 @@ def login_user():
                 session["logged_in"] = True
                 session["user_admin"]   = user["admin"]
 
-                # And head back to the home page
+                # back to the home page
                 flash("Login successful", "success")
                 return redirect("/")
 

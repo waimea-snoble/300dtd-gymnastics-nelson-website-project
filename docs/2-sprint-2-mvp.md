@@ -16,15 +16,10 @@ This is my updated database schema
 
 
 ---
+## Client
 
-## Initial Implementation
+My client said that when they looked at the personal checklist the two tick boxes might be confusing so they suggest that i only make one tick box for if they are volunteering or not.
 
-The key functionality of the web app was implemented:
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE SYSTEM HERE**
-
-
----
 
 ## Testing Register
 
@@ -47,12 +42,6 @@ I am testing the add task button. The task was added.
 
 ![Add task](screenshots/add-task.gif)
 
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
 
 ---
 
@@ -62,11 +51,7 @@ I am testing what happens when a task is deleted. The task was deleted from the 
 
 ![Delete task](screenshots/delete-task.gif)
 
-### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
 ---
@@ -77,11 +62,6 @@ I am testing what happens when a user volunteers and un volunteers for a task. W
 
 ![Volunteer/Unvolunteer](screenshots/volunteer-and-unvolunteer.gif)
 
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
 ---
@@ -92,24 +72,12 @@ I am testing what happens when a user signs up for a taskl that is about to reac
 
 ![Volunteer/Unvolunteer-required-amount](screenshots/volunteer-and-unvolunteer-required-amount.gif)
 
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
 ## Feedback from client
 
 After testing all of teh features to make sure they work correctly I showed the website to my client where they said that the website functions great and works how they expected it to.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
 ---

@@ -29,16 +29,16 @@ I addressed this by keeping all of the users information in a database as well a
 
 ### Accessability
 
-Replace this text with not4es about what you did during the project to address the implication - design features, etc.
+I addressed this implication by making sure it can be used on a variety of devices, I did this by changing the size of the window to replicate the size of phones and ipads. I used a simple easy to read font and made sure buttons could be clicked easily, this made sure my website is accessible for everyone
 
 
 ---
 
 ## Overall Review
 
-Replace these words with a brief review of how the project went in terms of:
-- What went well?
-- What didn't go so well?
-- How did the testing/trialling impact the final system?
-- What would you do differently if you could?
+Overall my project went really well, i was able to create a fully functional website for Gymnastics Nelson where users can create an account, login and sign up for tasks.
+- The design process of my project went really well as my client was very clear in how they wanted the website to function and look
+- Something that didn't go well was the communication with the client because they had to speak to the committee and then tell me what they said. This was frustrating as i had to wait for feedback instead of receiving it immediately
+- The testing helped me find any bugs with the website to make sure a user can fully use it without any issues. Speaking to my client also helped me finalise the design, functionality and the website as a whole.
+- Something I would do differently would be to not have one client, but to preset it in front of the whole gymnastics committee so that I could get multiple ideas and the website will be exactly what the team wants.
 

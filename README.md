@@ -14,7 +14,6 @@ This is a project where people can log in and volunteer for tasks to help out wi
 - The user can volunteer for a task by ticking a box
 - The user can un volunteer from a task
 - The user can click on a task to see the description of it
-- The user can tick a boz for a personal check list of the task they have completed
 - The admin can see who has volunteered for which task
 - The admin can add a new task to the list
 - The admin can delete a task from the list
@@ -72,3 +71,10 @@ The project demonstrates a number of **complex digital media (web) techniques**:
 ** EDIT THESE LISTS ABOVE TO MATCH YOUR PROJECT**
 
 
+Usernames and passwords
+
+-Username: snoble  Password: password
+
+-Admin username: admin  Password: password
+
+-Username: cooper12  Password: cooper12

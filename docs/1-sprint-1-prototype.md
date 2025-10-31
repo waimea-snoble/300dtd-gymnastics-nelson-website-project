@@ -32,7 +32,7 @@ The system will display output data by showing the list of tasks on the home scr
 
 ### Required Data Processing
 
-Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
+The volunteer table will be updated when a user signs up and un signs up from a task, updating the data in the database.
 
 
 ---
